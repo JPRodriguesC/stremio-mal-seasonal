@@ -16,12 +16,12 @@ export const manifest = {
             id: 'mal_season_anime',
             name: `Mal Seasonal`,
             type: config.type,
-            genres: [ 'Winter', 'Spring', 'Summer', 'Fall' ],
+            genres: [ 'Fall', 'Summer', 'Spring', 'Winter', 'Fall (old)', 'Summer (old)', 'Spring (Old)', 'Winter (Old)' ],
             extra: [ 
                 {
                     name: 'genre', 
                     isRequired: false,
-                    options: [ 'Winter', 'Spring', 'Summer', 'Fall' ]
+                    options: [ 'Winter', 'Spring', 'Summer', 'Fall', 'Winter (Old)', 'Spring (Old)', 'Summer (old)', 'Fall (old)' ]
                 }
             ]
         }

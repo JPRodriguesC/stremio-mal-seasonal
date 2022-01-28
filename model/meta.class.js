@@ -7,8 +7,8 @@ export class Meta {
         this.mal_id = malAnime.id;
         this.type = malAnime.media_type === 'movie'? 'movie' : 'series';
         this.name = malAnime.title;
-        this.poster = malAnime.main_picture.medium;
-        this.background = malAnime.main_picture.large;
+        this.poster = malAnime.main_picture?.medium;
+        this.background = malAnime.main_picture?.large;
         this.releaseInfo = this.setReleaseInfo(malAnime.start_date, malAnime.end_date);
         this.imdbRating = malAnime.mean;
         this.description = malAnime.synopsis;
