@@ -6,7 +6,7 @@ export const config = {
 
 export const manifest = {
     id: 'com.stremio.mal.season',
-    name: 'My Anime List seasonal anime',
+    name: 'My Anime List',
     description: 'List all shows on currently season according to MAL',
     version: config.version,
     resources:  ["catalog", "meta"],
@@ -14,14 +14,18 @@ export const manifest = {
     catalogs: [
         {
             id: 'mal_season_anime',
-            name: `Mal Seasonal`,
+            name: `MAL Seasonal`,
             type: config.type,
             genres: [ 'Fall', 'Summer', 'Spring', 'Winter', 'Fall (old)', 'Summer (old)', 'Spring (Old)', 'Winter (Old)' ],
             extra: [ 
                 {
                     name: 'genre', 
                     isRequired: false,
-                    options: [ 'Winter', 'Spring', 'Summer', 'Fall', 'Winter (Old)', 'Spring (Old)', 'Summer (old)', 'Fall (old)' ]
+                    options: [ 'Fall', 'Summer', 'Spring', 'Winter', 'Fall (old)', 'Summer (old)', 'Spring (Old)', 'Winter (Old)' ]
+                },
+                { 
+                    name: 'search',
+                    isRequired: false
                 }
             ]
         }
