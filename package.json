@@ -8,6 +8,7 @@
         "start": "node index.js"
     },
     "dependencies": {
+        "name-to-imdb": "^3.0.2",
         "node-fetch": "^2.6.1",
         "stremio-addon-sdk": "^1.6.5"
     }
