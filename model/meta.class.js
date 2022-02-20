@@ -6,44 +6,26 @@ export class Meta {
     constructor(malAnime) {
         this.id = `${config.prefix}:${malAnime.id}`;
         this.mal_id = malAnime.id;
+        this.imdb_id = '';
         this.type = malAnime.media_type === 'movie'? 'movie' : 'series';
         this.name = malAnime.title;
+        this.englishName = malAnime.alternative_titles?.en;
         this.poster = malAnime.main_picture?.large;
         this.background = malAnime.main_picture?.large;
-        this.releaseInfo = this.setReleaseInfo(malAnime.start_date, malAnime.end_date);
+        this.logo = '';
+        this.year = malAnime.start_date.split('-')[0];
+        this.releaseInfo = this.setReleaseInfo(malAnime.end_date);
         this.imdbRating = malAnime.mean;
         this.description = malAnime.synopsis;
         this.runtime = `${Math.ceil(malAnime.average_episode_duration/60)}min`;
-        this.links = this.setMetaLinks(),
-        this.videos = this.setVideos(malAnime.id, malAnime.num_episodes, malAnime.start_date, malAnime.broadcast);
+        this.videos = [];
     }
 
-    setReleaseInfo(start_date, end_date) {
-        return `${start_date.split('-')[0]}-${end_date !== undefined? end_date.split('-')[0] : ''}`;
+    setReleaseInfo(end_date) {
+        return `${this.year}-${end_date !== undefined? end_date.split('-')[0] : ''}`;
     }
 
-    setMetaLinks() {
-        return [];
-    }
-
-    setVideos(animeId, numberOfEpisodes, startDate, broadcastData) {
-        let videos = [];
-        if(numberOfEpisodes && broadcastData) {
-            numberOfEpisodes = numberOfEpisodes === 0 ? 12 : numberOfEpisodes; 
-            for (let episode = 1; episode <= numberOfEpisodes; episode++) {
-                let video = new Video(animeId, episode);
-                if(episode === 1)
-                    video.setStartBroadcast(startDate, broadcastData.start_time);
-                else
-                    video.setNextDateOfBroadcast(
-                        videos[episode - 2].released.substring(0, 10), 
-                        broadcastData.day_of_the_week, 
-                        broadcastData.start_time);
-
-                videos.push(video);
-            }
-        }
-
-        return videos;
+    setVideos(cinemetaVideos) {
+        this.videos = cinemetaVideos.map(v => new Video(v));
     }
 }

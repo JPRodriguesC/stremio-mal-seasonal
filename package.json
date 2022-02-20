@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "name-to-imdb": "^3.0.2",
+        "needle": "^3.0.0",
         "node-fetch": "^2.6.1",
         "stremio-addon-sdk": "^1.6.5"
     }
