@@ -1,14 +1,15 @@
 export const config = {
     type: 'series',
     version: '0.0.1',
-    prefix: 'mal'
+    prefix: 'mal',
+    imdbPrefix: 'tt'
 };
 
 export const manifest = {
     id: 'com.stremio.mal.season',
+    version: config.version,
     name: 'My Anime List',
     description: 'List all shows on currently season according to MAL',
-    version: config.version,
     resources:  ["catalog", "meta"],
     types: [config.type],
     catalogs: [
@@ -30,6 +31,6 @@ export const manifest = {
             ]
         }
     ],
-    idPrefixes: [config.prefix]
+    idPrefixes: [config.prefix, config.imdbPrefix]
 };
 

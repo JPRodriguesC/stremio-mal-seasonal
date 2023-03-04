@@ -1,12 +1,10 @@
 export class Video {
-    constructor(cinemetaVideo) {
+    constructor(cinemetaVideo) {        
         this.id = cinemetaVideo.id;
-        this.name = cinemetaVideo.name;
-        this.episode = cinemetaVideo.episode;
+        this.title = cinemetaVideo.title ?? cinemetaVideo.name;
         this.released = cinemetaVideo.released;
+        this.episode = cinemetaVideo.episode;
         this.season = cinemetaVideo.season;
-        this.tvdb_id = cinemetaVideo.tvdb_id;
         this.overview = cinemetaVideo.overview;
-        this.description = cinemetaVideo.description;
     }
 }
