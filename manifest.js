@@ -1,5 +1,5 @@
 export const config = {
-    type: 'series',
+    type: 'anime',
     version: '0.0.1',
     prefix: 'mal',
     imdbPrefix: 'tt'
