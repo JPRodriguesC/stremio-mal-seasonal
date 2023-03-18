@@ -1,6 +1,8 @@
 import stremio from 'stremio-addon-sdk';
-const { serveHTTP } = stremio;
-
+import { config } from 'dotenv';
 import { addon } from './lib/addon.js';
 
-serveHTTP(addon.getInterface(), { port: 4200 });
+const { serveHTTP } = stremio;
+
+config();
+serveHTTP(addon.getInterface(), { port: process.env.DEPLOY_PORT });
