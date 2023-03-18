@@ -5,4 +5,4 @@ import { addon } from './lib/addon.js';
 const { serveHTTP } = stremio;
 
 config();
-serveHTTP(addon.getInterface(), { port: process.env.DEPLOY_PORT });
+serveHTTP(addon.getInterface(), { port: process.env.PORT });
