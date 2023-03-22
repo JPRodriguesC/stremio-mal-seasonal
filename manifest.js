@@ -12,6 +12,7 @@ export const manifest = {
     description: 'List all shows on currently season according to MAL',
     resources:  ["catalog", "meta"],
     types: [config.type],
+    logo: "https://raw.githubusercontent.com/JPRodriguesC/stremio-mal-seasonal/main/public/logo.png",
     catalogs: [
         {
             id: 'mal_season_anime',
